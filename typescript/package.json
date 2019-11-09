@@ -1,0 +1,22 @@
+{
+  "name": "codewars-typescript-katas",
+  "description": "Typescript katas from codewars.com",
+  "scripts": {
+    "coverage": "jest --coverage",
+    "test": "jest"
+  },
+  "author": "Adam Zielinski",
+  "license": "WTFPL",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/maosmurf/codewars.git"
+  },
+  "devDependencies": {
+    "@types/chai": "^4.2.4",
+    "@types/jest": "^24.0.22",
+    "chai": "^4.2.0",
+    "jest": "^24.9.0",
+    "ts-jest": "^24.1.0",
+    "typescript": "^3.7.2"
+  }
+}
