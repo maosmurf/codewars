@@ -1,0 +1,16 @@
+{
+  "name": "codewars-javascript-katas",
+  "description": "Javascript katas from codewars.com",
+  "scripts": {
+    "test": "mocha"
+  },
+  "author": "Adam Zielinski",
+  "license": "WTFPL",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/maosmurf/codewars.git"
+  },
+  "devDependencies": {
+    "mocha": "^6.2.2"
+  }
+}
