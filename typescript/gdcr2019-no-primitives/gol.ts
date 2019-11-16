@@ -1,9 +1,16 @@
 export enum State {
     ALIVE,
     DEAD
-
 }
 
-export function nextState(state: State, UNDER_POPULATION: any): State {
+export enum NeighborState {
+    SURVIVOR,
+    UNDER_POPULATION
+}
+
+export function nextState(state: State, neighborState: NeighborState): State {
+    if(neighborState == NeighborState.UNDER_POPULATION) {
+        return State.DEAD;
+    }
     return state;
 }
