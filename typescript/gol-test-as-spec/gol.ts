@@ -1,4 +1,5 @@
 export enum State {
+    ALIVE,
     DEAD,
 }
 
@@ -10,7 +11,7 @@ export interface Cell {
 export class Rules {
 
     static nextState(cell: Cell): State {
-
-        return State.DEAD;
+        return cell.aliveNeighbours == 3 ? State.ALIVE : State.DEAD;
     }
+
 }

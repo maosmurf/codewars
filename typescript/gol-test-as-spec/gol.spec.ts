@@ -10,4 +10,13 @@ describe("Game of life", function () {
         let nextState = Rules.nextState(cell);
         assert.equal(nextState, State.DEAD);
     });
+
+    it("Dead cell with three neighbors becomes alive", function () {
+        let cell: Cell = {
+            state: State.DEAD,
+            aliveNeighbours: 3
+        };
+        let nextState = Rules.nextState(cell);
+        assert.equal(nextState, State.ALIVE);
+    });
 });
