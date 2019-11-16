@@ -26,7 +26,7 @@ describe("Game of life", function () {
         it(s + " with " + n + " neighbours should be " + ex, function () {
             let cell: Cell = {
                 state: s,
-                aliveNeighbours: n
+                aliveNeighbours: () => n
             };
             let nextState = Rules.nextState(cell);
             assert.equal(nextState, ex);
