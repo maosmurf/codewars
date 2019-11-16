@@ -11,7 +11,13 @@ export interface Cell {
 export class Rules {
 
     static nextState(cell: Cell): State {
-        return cell.aliveNeighbours == 3 || cell.aliveNeighbours == 2 ? State.ALIVE : State.DEAD;
+        if (cell.aliveNeighbours == 3) {
+            return State.ALIVE;
+        }
+        if (cell.aliveNeighbours == 2) {
+            return State.ALIVE;
+        }
+        return State.DEAD;
     }
 
 }
