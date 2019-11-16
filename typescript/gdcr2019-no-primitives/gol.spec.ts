@@ -3,19 +3,13 @@ import {NeighborState, nextState, State} from "./gol";
 
 describe("Game of Life Rules", function () {
 
-    it("Dead cell should stay dead when under-populated", () => {
-        const next = nextState(State.DEAD, NeighborState.UNDER_POPULATION);
-        assert.equal(next, State.DEAD);
-    });
-
-    it("Alive cell should die when under-populated", () => {
-        const next = nextState(State.ALIVE, NeighborState.UNDER_POPULATION);
-        assert.equal(next, State.DEAD);
-    });
-
-    it("Alive cell should die when over-crowded", () => {
-        const next = nextState(State.ALIVE, NeighborState.OVER_CROWDING);
-        assert.equal(next, State.DEAD);
+    [NeighborState.UNDER_POPULATION, NeighborState.OVER_CROWDING].forEach(n => {
+        [State.ALIVE, State.DEAD].forEach(s => {
+            it(s + " cell should stay dead when " + n, () => {
+                const next = nextState(s, n);
+                assert.equal(next, State.DEAD);
+            });
+        });
     });
 
     it("Alive cell should stay alive when surivor", () => {
