@@ -1,7 +1,7 @@
 import {assert} from 'chai';
 import {Cell, Rules, State} from "./gol";
 
-describe("Game of life", function () {
+describe("Game of life rules", function () {
     [
         [State.DEAD, 0, State.DEAD],
         [State.DEAD, 1, State.DEAD],
