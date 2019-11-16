@@ -19,4 +19,13 @@ describe("Game of life", function () {
         let nextState = Rules.nextState(cell);
         assert.equal(nextState, State.ALIVE);
     });
+
+    it("Alive cell with two neighbors stays alive", function () {
+        let cell: Cell = {
+            state: State.ALIVE,
+            aliveNeighbours: 2
+        };
+        let nextState = Rules.nextState(cell);
+        assert.equal(nextState, State.ALIVE);
+    });
 });
