@@ -4,12 +4,16 @@ export enum State {
 }
 
 export enum NeighborState {
-    SURVIVOR,
     UNDER_POPULATION,
+    SURVIVAL,
+    REPRODUCTION,
     OVER_CROWDING
 }
 
 export function nextState(state: State, neighborState: NeighborState): State {
+    if(neighborState == NeighborState.REPRODUCTION) {
+        return State.ALIVE;
+    }
     if(neighborState == NeighborState.OVER_CROWDING) {
         return State.DEAD;
     }

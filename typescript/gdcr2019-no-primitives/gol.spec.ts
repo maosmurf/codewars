@@ -19,7 +19,12 @@ describe("Game of Life Rules", function () {
     });
 
     it("Alive cell should stay alive when surivor", () => {
-        const next = nextState(State.ALIVE, NeighborState.SURVIVOR);
+        const next = nextState(State.ALIVE, NeighborState.SURVIVAL);
+        assert.equal(next, State.ALIVE);
+    });
+
+    it("Dead cell should become alive when reproduction", () => {
+        const next = nextState(State.DEAD, NeighborState.REPRODUCTION);
         assert.equal(next, State.ALIVE);
     });
 
