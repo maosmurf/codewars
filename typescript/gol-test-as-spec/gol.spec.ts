@@ -2,38 +2,34 @@ import {assert} from 'chai';
 import {Cell, Rules, State} from "./gol";
 
 describe("Game of life", function () {
-    it("Dead cell with under-population stays dead", function () {
-        let cell: Cell = {
-            state: State.DEAD,
-            aliveNeighbours: 0
-        };
-        let nextState = Rules.nextState(cell);
-        assert.equal(nextState, State.DEAD);
-    });
+    [
+        [State.DEAD, 0, State.DEAD],
+        [State.DEAD, 1, State.DEAD],
+        [State.DEAD, 2, State.DEAD],
+        [State.DEAD, 3, State.ALIVE],
+        [State.DEAD, 4, State.DEAD],
+        [State.DEAD, 5, State.DEAD],
+        [State.DEAD, 6, State.DEAD],
+        [State.DEAD, 7, State.DEAD],
+        [State.DEAD, 8, State.DEAD],
+        [State.ALIVE, 0, State.DEAD],
+        [State.ALIVE, 1, State.DEAD],
+        [State.ALIVE, 2, State.ALIVE],
+        [State.ALIVE, 3, State.ALIVE],
+        [State.ALIVE, 4, State.DEAD],
+        [State.ALIVE, 5, State.DEAD],
+        [State.ALIVE, 6, State.DEAD],
+        [State.ALIVE, 7, State.DEAD],
+        [State.ALIVE, 8, State.DEAD],
 
-    it("Dead cell with three neighbors becomes alive", function () {
-        let cell: Cell = {
-            state: State.DEAD,
-            aliveNeighbours: 3
-        };
-        let nextState = Rules.nextState(cell);
-        assert.equal(nextState, State.ALIVE);
-    });
-
-    it("Alive cell with two neighbors stays alive", function () {
-        let cell: Cell = {
-            state: State.ALIVE,
-            aliveNeighbours: 2
-        };
-        let nextState = Rules.nextState(cell);
-        assert.equal(nextState, State.ALIVE);
-    });
-    it("Dead cell with two neighbors stays dead", function () {
-        let cell: Cell = {
-            state: State.DEAD,
-            aliveNeighbours: 2
-        };
-        let nextState = Rules.nextState(cell);
-        assert.equal(nextState, State.DEAD);
+    ].forEach(([s, n, ex]) => {
+        it(s + " with " + n + " neighbours should be " + ex, function () {
+            let cell: Cell = {
+                state: s,
+                aliveNeighbours: n
+            };
+            let nextState = Rules.nextState(cell);
+            assert.equal(nextState, ex);
+        });
     });
 });
