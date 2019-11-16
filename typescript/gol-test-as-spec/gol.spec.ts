@@ -33,3 +33,15 @@ describe("Game of life rules", function () {
         });
     });
 });
+
+describe("Game of life cell neighbours", function () {
+ it("With 0 neighbours return 0", function () {
+     assert.equal(Rules.getAliveNeighbours({x: 0, y: 0 }, []), 0);
+ })
+    it("With 1 neighbours return 1", function () {
+        assert.equal(Rules.getAliveNeighbours({x: 0, y: 0 }, [{x: 1, y: 1 }]), 1);
+    })
+    it("With 0 neighbours but other living cell return 0", function () {
+        assert.equal(Rules.getAliveNeighbours({x: 0, y: 0 }, [{x: 2, y: 2 }]), 0);
+    })
+})
