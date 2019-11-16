@@ -28,4 +28,12 @@ describe("Game of life", function () {
         let nextState = Rules.nextState(cell);
         assert.equal(nextState, State.ALIVE);
     });
+    it("Dead cell with two neighbors stays dead", function () {
+        let cell: Cell = {
+            state: State.DEAD,
+            aliveNeighbours: 2
+        };
+        let nextState = Rules.nextState(cell);
+        assert.equal(nextState, State.DEAD);
+    });
 });

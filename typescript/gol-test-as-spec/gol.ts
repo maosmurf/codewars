@@ -15,7 +15,7 @@ export class Rules {
             return State.ALIVE;
         }
         if (cell.aliveNeighbours == 2) {
-            return State.ALIVE;
+            return cell.state;
         }
         return State.DEAD;
     }
