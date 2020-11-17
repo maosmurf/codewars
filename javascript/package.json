@@ -2,6 +2,7 @@
   "name": "codewars-javascript-katas",
   "description": "Javascript katas from codewars.com",
   "scripts": {
+    "preinstall": "mkdir -p node_modules; touch ./node_modules/.metadata_never_index",
     "test": "mocha"
   },
   "author": "Adam Zielinski",
@@ -11,6 +12,6 @@
     "url": "git://github.com/maosmurf/codewars.git"
   },
   "devDependencies": {
-    "mocha": "^6.2.2"
+    "mocha": "^8.2.1"
   }
 }
